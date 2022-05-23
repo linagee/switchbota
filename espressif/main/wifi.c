@@ -46,8 +46,8 @@ static void wifi_set_connected(uint8_t c) {
     }
 
 }
-static void event_handler(void* arg, esp_event_base_t event_base,
-                                int32_t event_id, void* event_data)
+
+esp_err_t event_handler(void *ctx, system_event_t *event)
 {
     switch(event_id) {
         case SYSTEM_EVENT_STA_START:
@@ -57,8 +57,8 @@ static void event_handler(void* arg, esp_event_base_t event_base,
             
         case SYSTEM_EVENT_STA_GOT_IP:
             ESP_LOGI(TAG, "event_handler: SYSTEM_EVENT_STA_GOT_IP");
-            ip_event_got_ip_t* event = (ip_event_got_ip_t*) event_data;
-            ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&event->ip_info.ip));
+            ip_event_got_ip_t* ip_event = (ip_event_got_ip_t*) &event->event_info;
+            ESP_LOGI(TAG, "got ip:" IPSTR, IP2STR(&ip_event->ip_info.ip));
             wifi_set_connected(1);
             break;
             
