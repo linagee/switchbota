@@ -92,7 +92,7 @@ esp_err_t event_handler(void *ctx, system_event_t *event)
         default:
             break;        
     }
-    return;
+    return ESP_OK;
 }
 int wifi_is_connected()
 {
