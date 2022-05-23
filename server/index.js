@@ -20,7 +20,7 @@ const path = require('path');
 const { https } = require('follow-redirects');
 const fs = require('fs');
 
-const PAYLOAD_URL = "https://github.com/tasmota/install/blob/0957b916b1484f850af843dd9e6d3733c0a4b095/firmware/unofficial/tasmota32c3_2M.factory.bin?raw=true";
+const PAYLOAD_URL = "https://github.com/arendst/Tasmota/releases/download/v11.1.0/tasmota32c3.factory.bin";
 const PAYLOAD_PATH = path.join(__dirname, 'bin', 'payload.bin');
 const APP_URL = "https://github.com/kendallgoto/switchbota/releases/latest/download/app.bin";
 const APP_PATH = path.join(__dirname, 'bin', 'app.bin');
