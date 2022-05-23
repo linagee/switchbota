@@ -41,7 +41,7 @@ void ota_init()
     xTaskCreate(&ota_task, "otaTask", 32768, NULL, 5, NULL);
 }
 
-esp_err_t event_handler(esp_http_client_event_t *evt)
+esp_err_t ota_event_handler(esp_http_client_event_t *evt)
 {
     switch(evt->event_id) {
         case HTTP_EVENT_ERROR:
@@ -113,7 +113,7 @@ unsigned char buf[OTA_BUF];
 void ota_flip() {
     esp_http_client_config_t config = {
         .url = FALLBACK_URL,
-        .event_handler = event_handler,
+        .event_handler = ota_event_handler,
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
     esp_http_client_open(client, 0);
@@ -150,7 +150,7 @@ void ota_inject() {
 
         esp_http_client_config_t config = {
             .url = BINARY_URL,
-            .event_handler = event_handler,
+            .event_handler = ota_event_handler,
         };
         esp_http_client_handle_t client = esp_http_client_init(&config);
         esp_http_client_open(client, 0);
