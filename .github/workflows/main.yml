@@ -1,10 +1,6 @@
-name: SwitchBOTA app.bin build
+name: SwitchbOTA app.bin build
 
-on:
-  push:
-    branches:
-      - main
-      - 'releases/**'
+on: push
 
 jobs:
   build:
@@ -24,10 +20,8 @@ jobs:
         path: 'espressif'
     - uses: actions/upload-artifact@v3
       with:
-        name: app-bin-files
+        name: app.bin
         path: |
           espressif/build/bootloader/bootloader.bin
           espressif/build/partition_table/partition-table.bin
-          espressif/build/ota_data_initial.bin
           espressif/build/switchbota.bin
-          
