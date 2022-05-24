@@ -79,7 +79,7 @@ const PAYLOAD_PATH = path.join(__dirname, 'bin', 'payload.bin');
 const PAYLOAD_BIN_MD5 = '14e7cc0d16e72da007727581520047d5';
 const APP_URL = 'https://github.com/kendallgoto/switchbota/releases/latest/download/app.bin';
 const APP_PATH = path.join(__dirname, 'bin', 'app.bin');
-const APP_BIN_MD5 = 'cc9ec0df568b6e19da2096471ed8f531';
+const APP_BIN_MD5 = '584c99f15370dd2dee9b41232d08f4d3';
 (async function () {
 
 	function getFileHash(path) {
